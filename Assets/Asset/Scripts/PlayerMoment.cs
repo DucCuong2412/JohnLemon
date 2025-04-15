@@ -9,10 +9,13 @@ public class PlayerMoment : MonoBehaviour
     private Rigidbody rb;
     public float speed = 5f;
     public float speedRotate = 5f;
+    private Animator animator;
+
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();    
     }
 
     // Update is called once per frame
@@ -37,8 +40,16 @@ public class PlayerMoment : MonoBehaviour
         {
             Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
             Quaternion targetRotation = Quaternion.LookRotation(direction);
+            animator.SetTrigger("Run");
+
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, speedRotate * Time.deltaTime);
+
+        }else if (horizontal == 0 && vertical == 0)
+        {
+            animator.SetTrigger("Idle");
         }
+        
+
     }
     
 
