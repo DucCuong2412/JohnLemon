@@ -1,14 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Searcher.SearcherWindow.Alignment;
+
 
 public class PlayerMoment : MonoBehaviour
 {
     // Start is called before the first frame update
     private Rigidbody rb;
-    public float speed = 5f;
-    public float speedRotate = 5f;
+    private float speed = 0.9f;
+    public float speedRotate = 20f;
     private Animator animator;
 
 
